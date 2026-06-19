@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zeyuiwist.github.io/web-main-i-game-com-cn/sitemap.xml
