@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国体育彩票 · 知识型介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fae3c3 0%, #f8d5b0 35%, #f3c69b 70%, #ecb884 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: #2a241c;
+        }
+
+        .page-wrapper {
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 通用卡片 */
+        .card {
+            background: rgba(255, 251, 245, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 36px;
+            padding: 2.5rem 2.2rem;
+            box-shadow: 0 12px 28px rgba(180, 120, 60, 0.18), 0 4px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 239, 218, 0.6);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 32px rgba(170, 105, 45, 0.15);
+        }
+
+        /* hero */
+        .hero {
+            text-align: center;
+            padding: 3.2rem 2.2rem 2.8rem;
+            background: linear-gradient(135deg, #fcecd7, #f7dbbc);
+            border-radius: 40px;
+            margin-bottom: 2.2rem;
+            border: 1px solid rgba(255, 215, 170, 0.5);
+            box-shadow: 0 8px 20px rgba(160, 100, 40, 0.12);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #4f3623;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 2px 4px rgba(180, 120, 60, 0.08);
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6b4f37;
+            opacity: 0.8;
+            border-bottom: 1px dashed #dbb48b;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        .hero p {
+            margin-top: 1.4rem;
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #3f2f20;
+        }
+
+        .hero .tagline {
+            background: rgba(240, 210, 180, 0.4);
+            border-radius: 60px;
+            padding: 0.5rem 1.8rem;
+            display: inline-block;
+            font-weight: 450;
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            color: #4c3825;
+            border: 1px solid #e7c8a6;
+        }
+
+        /* 标题风格 */
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 450;
+            letter-spacing: 1px;
+            color: #3e2d1c;
+            margin-bottom: 1.6rem;
+            padding-left: 0.3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #c99763;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: #3b2f24;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0 0.4rem;
+        }
+
+        .card ul li {
+            padding: 0.4rem 0 0.4rem 1.8rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="%23c58a4e"><circle cx="12" cy="12" r="6"/></svg>') left center no-repeat;
+            background-size: 12px;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-item {
+            padding: 1rem 0 0.8rem 0;
+            border-bottom: 1px solid #eddccb;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 550;
+            color: #42301f;
+            margin-bottom: 3px;
+        }
+
+        .faq-item span {
+            color: #4e3b2a;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: #c58a4e;
+            color: #fcf6ed;
+            padding: 0.6rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 10px rgba(170, 110, 40, 0.2);
+            border: none;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-link:hover {
+            background: #b0753d;
+            box-shadow: 0 6px 16px rgba(150, 90, 35, 0.25);
+        }
+
+        .inline-link {
+            color: #8a5f30;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #dbb48b;
+            transition: border-color 0.2s, color 0.2s;
+            padding-bottom: 1px;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #8a5f30;
+            color: #55381e;
+        }
+
+        .bottom-links {
+            margin-top: 1.8rem;
+            padding: 1.2rem 0 0.2rem;
+            border-top: 1px solid #dbb48b;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2.5rem;
+            justify-content: center;
+            font-size: 0.95rem;
+        }
+
+        .bottom-links a {
+            color: #6c4f33;
+            text-decoration: none;
+            border-bottom: 1px dotted #cfaa7e;
+            transition: border 0.2s;
+        }
+
+        .bottom-links a:hover {
+            border-bottom: 1px solid #754f27;
+            color: #4f3520;
+        }
+
+        .footnote {
+            text-align: center;
+            margin: 1.2rem 0 0.8rem;
+            font-size: 0.85rem;
+            color: #6f5a45;
+            opacity: 0.7;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 28px;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .bottom-links {
+                gap: 0.8rem 1.5rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-link {
+                padding: 0.5rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>体彩·知识</h1>
+        <div class="sub">从公益到生活</div>
+        <p>体育彩票并不只是简单的数字游戏。它背后涉及概率统计、公益金分配以及全民健身的社会脉络。下面从几个维度展开，帮助您更系统地理解<a href="https://main-lottery.com" class="inline-link">中国体彩</a>的运作逻辑与社会价值。</p>
+        <div class="tagline">理性购彩 · 乐享生活</div>
+    </div>
+
+    <!-- 优势区：结构与公益 -->
+    <div class="card">
+        <div class="section-title">优势 · 透明化架构</div>
+        <p>中国体育彩票自发行以来，逐渐形成了一套“游戏设计—资金归集—公益分配”的闭环。每张彩票的销售额中，约35%作为公益金，用于补充全国社会保障基金、支持教育助学、医疗救助、体育场馆建设等。</p>
+        <p>在资金流转上，体彩系统接受财政、审计及社会监督，年度公益金使用报告向社会公开。这种机制使得每一次投注都与公共福祉产生真实关联，这也是区别于其他博弈类活动的重要特征。</p>
+        <ul>
+            <li>公益金提取比例固定，用途法定</li>
+            <li>开奖流程公证+直播，可追溯</li>
+            <li>奖池资金独立托管，专款专用</li>
+        </ul>
+    </div>
+
+    <!-- 说明区：场景与知识 -->
+    <div class="card">
+        <div class="section-title">说明 · 常见场景与规则</div>
+        <p>体彩主要分为乐透型（如大乐透）、竞猜型（如竞彩足球/篮球）以及即开型（顶呱刮）。不同游戏的风险特征与参与方式差异较大：</p>
+        <p>竞猜型需要具备一定的体育知识储备，其奖金分配与比赛结果挂钩；乐透型则完全基于随机概率，每一注的中奖机会均等。无论选择哪种玩法，核心原则都是量力而行、不盲目追加。</p>
+        <p>另外，所有体彩投注均采用实名兑奖（单注超过1万元需带身份证及中奖票），并依法代扣代缴偶然所得税。了解这些基本规则，能帮助参与者建立更理性的预期。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <div class="section-title">常见疑问摘要</div>
+        <div class="faq-item">
+            <strong>Q：体彩公益金具体用到哪儿了？</strong>
+            <span>主要用于补充全国社保基金、支持全民健身设施、青少年体育、医疗救助、扶贫等。每年国家体育总局和财政部会联合发布公益金使用公告。</span>
+        </div>
+        <div class="faq-item">
+            <strong>Q：中奖概率真的公平吗？</strong>
+            <span>开奖过程由公证员全程监督，并使用专业的摇奖设备，数据实时上传。大乐透头奖概率约为2142万分之一，属于典型的独立随机事件。</span>
+        </div>
+        <div class="faq-item">
+            <strong>Q：如何查询开奖结果？</strong>
+            <span>可通过官方平台、授权门店或主流媒体获取开奖号码。注意核对期号与玩法，避免信息错位。</span>
+        </div>
+        <div style="margin-top: 1.2rem;">
+            <a href="https://main-lottery.com" class="btn-link">中国体彩</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">更多细节请参阅官方信息渠道，保持理性认知。</p>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="bottom-links">
+        <a href="https://main-lottery.com">中国体彩</a>
+        <a href="#">公益金公告</a>
+        <a href="#">玩法介绍</a>
+        <a href="#">开奖历史</a>
+        <a href="#">理性购彩提示</a>
+    </div>
+    <div class="footnote">
+        本页面仅作信息展示，不构成任何购买建议。请理性参与，量力而行。
+    </div>
+</div>
+</body>
+</html>
