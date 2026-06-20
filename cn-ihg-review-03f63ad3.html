@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>威尼斯人 · 再访笔记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f5f2;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #2e2b28;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0 1.8rem;
+      border-bottom: 1px solid #ddd8d2;
+      margin-bottom: 3rem;
+    }
+
+    .top-nav .logo {
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: #5f4c3b;
+    }
+
+    .top-nav .logo span {
+      font-weight: 600;
+      color: #9a7a64;
+    }
+
+    .top-nav .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .top-nav .nav-links a {
+      text-decoration: none;
+      color: #5f4c3b;
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    .top-nav .nav-links a:hover {
+      color: #3a2e26;
+      border-bottom-color: #b8a393;
+    }
+
+    /* hero 区 */
+    .hero {
+      margin-bottom: 3.5rem;
+    }
+
+    .hero h1 {
+      font-weight: 350;
+      font-size: 2.2rem;
+      letter-spacing: -0.5px;
+      color: #2e2b28;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 strong {
+      font-weight: 500;
+      color: #6f553f;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #4e4842;
+      max-width: 620px;
+    }
+
+    /* 核心介绍 */
+    .intro-block {
+      margin-bottom: 3.8rem;
+      padding: 0.2rem 0;
+    }
+
+    .intro-block p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .intro-block a {
+      color: #6f553f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #d6c9be;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .intro-block a:hover {
+      text-decoration-color: #6f553f;
+    }
+
+    /* 三个场景模块 */
+    .scenes {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .scene-card {
+      background: #fefcf9;
+      padding: 1.8rem 2rem;
+      border-radius: 0;
+      box-shadow: 0 2px 8px rgba(46, 43, 40, 0.04);
+      border-left: 3px solid #d6c9be;
+      transition: box-shadow 0.25s, border-left-color 0.25s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 6px 16px rgba(46, 43, 40, 0.06);
+      border-left-color: #9a7a64;
+    }
+
+    .scene-card h3 {
+      font-weight: 450;
+      font-size: 1.25rem;
+      letter-spacing: 0.3px;
+      margin-bottom: 0.6rem;
+      color: #3a2e26;
+    }
+
+    .scene-card p {
+      font-size: 0.98rem;
+      color: #4e4842;
+      margin-bottom: 0.3rem;
+    }
+
+    .scene-card .scene-tag {
+      display: inline-block;
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      color: #8f7a6a;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: 1px solid #e3dbd4;
+      padding: 0.2rem 0.8rem;
+    }
+
+    /* 常见说明 (紧凑) */
+    .faq-summary {
+      margin-bottom: 2.5rem;
+      border-top: 1px solid #e3dbd4;
+      padding-top: 2.5rem;
+    }
+
+    .faq-summary h2 {
+      font-weight: 400;
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      color: #3a2e26;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item summary {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #4e4842;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .faq-item summary::before {
+      content: "﹏";
+      font-size: 1.2rem;
+      color: #b8a393;
+      line-height: 1;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item p {
+      margin: 0.4rem 0 0 1.8rem;
+      font-size: 0.9rem;
+      color: #5f5248;
+      max-width: 580px;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      border-top: 1px solid #e3dbd4;
+      padding-top: 2rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #7a6b5e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .footer-note a {
+      color: #6f553f;
+      text-decoration: none;
+      border-bottom: 1px solid #d6c9be;
+      padding-bottom: 1px;
+    }
+
+    .footer-note a:hover {
+      border-bottom-color: #6f553f;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .page {
+        padding: 1.5rem 1.2rem 3rem;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+      .top-nav .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .scene-card {
+        padding: 1.4rem 1.2rem;
+      }
+      .faq-item p {
+        margin-left: 0.8rem;
+      }
+      .footer-note {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="logo"><span>✦</span> 再访</div>
+    <div class="nav-links">
+      <a href="#">收藏</a>
+      <a href="#">随记</a>
+      <a href="#">关于</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <section class="hero">
+    <h1>再次留意<br>那个叫<strong> 威尼斯人 </strong>的地方</h1>
+    <p>有些地点，第一次是偶遇，第二次才是真正开始。<br>这一次，不妨把目光放得更轻、更持久。</p>
+  </section>
+
+  <!-- 核心介绍 (嵌入链接) -->
+  <div class="intro-block">
+    <p>
+      如果你曾经收藏过 <a href="https://cn-ihg.com">威尼斯人</a>，或许可以找个安静的时段，重新打开它。<br>
+      不是匆匆浏览，而是像翻开一本旧笔记本——那些曾经扫过的角落，第二次看时往往会显露不同的质感。
+    </p>
+    <p>
+      页面布局、信息层次、甚至某段描述的语气，都可能在你再次阅读时产生新的理解。<br>
+      持续关注一个网站，就像持续观察一座建筑：光影变化，细节浮现。
+    </p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes">
+    <div class="scene-card">
+      <h3>场景 · 收藏夹深处</h3>
+      <p>书签栏里躺着的链接，往往被新的标签页掩盖。<br>某天清理收藏夹时重新点开，发现它比印象中更沉静、更规整。那种感觉像是重遇一本读过一半的书。</p>
+      <span class="scene-tag">再发现</span>
+    </div>
+
+    <div class="scene-card">
+      <h3>场景 · 等待加载的几秒</h3>
+      <p>页面打开前的那几秒空白，像是给思绪留出的间隙。<br>你记得它大概的结构，却不记得按钮的位置——这种“陌生感”恰好让访问变得新鲜。</p>
+      <span class="scene-tag">间隙</span>
+    </div>
+
+    <div class="scene-card">
+      <h3>场景 · 持续关注的节奏</h3>
+      <p>每周或每月固定访问一次，不是为了获取信息，而是为了保持一种连接。<br>有些网站适合加入固定的浏览轮换，像散步时总会经过的某条街。</p>
+      <span class="scene-tag">日常</span>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <div class="faq-summary">
+    <h2>偶尔浮现的疑问</h2>
+
+    <details class="faq-item">
+      <summary>为什么第二次访问时感觉不同？</summary>
+      <p>因为注意力分配变了。第一次的视线常被视觉焦点吸引，第二次则会注意到边角、留白和结构上的细微安排。这种变化不是网站本身在变，而是你看它的方式不同了。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>收藏的链接很久没打开，需要清理吗？</summary>
+      <p>不必急着清理。保留一些“待重访”的链接，相当于给自己留了观察时间轴的机会。偶尔点开一个旧收藏，像翻出一张旧照片——场景本身没变，但你已不是当时那个人。</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>持续关注一个网站，最好的频率？</summary>
+      <p>没有标准答案。有人喜欢每周一次，有人只在换季时想起。重要的是保持那种“可以随时回去”的感觉，而非机械打卡。形成自己的节奏就好。</p>
+    </details>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    <span>保留再次访问的可能</span>
+    <span><a href="https://cn-ihg.com">威尼斯人</a> · 不匆忙的浏览</span>
+  </div>
+
+</div>
+</body>
+</html>
